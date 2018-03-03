@@ -86,3 +86,6 @@ Once the output computed all together, we can visualize it,
     washing_machine.wash_time.view(sim=washing_machine.washing)
 ```   
 
+![figure_1](https://user-images.githubusercontent.com/20352413/36935274-dd39b532-1f1b-11e8-9593-995249796017.png)
+
+Inputs that we put in were type_of_dirtiness and degree_of_dirtiness around 50 and 68 respectively, according to that washing time is generated around approximate of 32.7886891153378 minutes, we can round that up to 33 minutes.
