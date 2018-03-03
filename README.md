@@ -77,7 +77,7 @@ Our inputs will be known as Antecednets and Outputs will be known as Consequents
     rule9 = ctrl.Rule(degree_dirt['Low'] | type_dirt['NonFat'], wash_time['very_short'])
 ```
 
-# Visualization using Matplotlib
+# Visualizing using Matplotlib
 
 Once the output computed all together, we can visualize it,
 
@@ -85,3 +85,4 @@ Once the output computed all together, we can visualize it,
     washing_machine.washing.compute()
     washing_machine.wash_time.view(sim=washing_machine.washing)
 ```   
+
