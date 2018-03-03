@@ -49,20 +49,21 @@ Using scikit-fuzzy we will generate a Control System that will estimate how long
 
 Our inputs will be known as Antecednets and Outputs will be known as Consequents in a scikit-fuzzy controller.
 
-### Antecednets:
+### Antecednets(Inputs):
 
   - type_of_dirtiness:
-     Universe (ie, crisp value range): Determine type of dirtiness in terms of percentage 1 to 100
-     Fuzzy set (ie, fuzzy value range): NonFat, medium, Fat
+     - Universe (ie, crisp value range): Determine type of dirtiness in terms of percentage 1 to 100
+     - Fuzzy set (ie, fuzzy value range): NonFat, medium, Fat
      
-  -degree_of_dirtiness:
-     -Universe (ie, crisp value range): Determine the degree of dirtiness in terms of percentage 1 to 100
-      Fuzzy set (ie, fuzzy value range): Low,Medium,Fat
+  - degree_of_dirtiness:
+     - Universe (ie, crisp value range): Determine the degree of dirtiness in terms of percentage 1 to 100
+     - Fuzzy set (ie, fuzzy value range): Low,Medium,Fat
 
-### Consequents:
+### Consequents(Outputs):
 
-    
-
+   - wash_time:
+     - Universe: According to type_of_dirtiness and degree_of_dirtiness program will determine how long it would take to wash                    one load of clothes. (Output is generated in the format of minutes between (1 to 60))
+     - Fuzzy set (ie, fuzzy value range): VeryShort,Short,Medium,Long,VeryLong
 
 ```python
     rule1 = ctrl.Rule(degree_dirt['High'] | type_dirt['Fat'], wash_time['VeryLong'])
@@ -75,3 +76,12 @@ Our inputs will be known as Antecednets and Outputs will be known as Consequents
     rule8 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['NonFat'], wash_time['short'])
     rule9 = ctrl.Rule(degree_dirt['Low'] | type_dirt['NonFat'], wash_time['very_short'])
 ```
+
+# Visualization using Matplotlib
+
+Once the output computed all together, we can visualize it,
+
+```python
+    washing_machine.washing.compute()
+    washing_machine.wash_time.view(sim=washing_machine.washing)
+```   
