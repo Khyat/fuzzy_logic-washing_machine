@@ -6,7 +6,7 @@ class washing_machine:
 
     degree_dirt = ctrl.Antecedent(np.arange(0, 101, 1), 'degree_dirt')
     type_dirt = ctrl.Antecedent(np.arange(0, 101, 1), 'type_dirt')
-    wash_time = ctrl.Consequent(np.arange(0, 61, 1), 'wash_time')
+    wash_time = ctrl.Consequent(np.arange(0, 61, 1), 'wash_time', 'som')
 
     degree_names = ['Low', 'Medium', 'High']
     type_names = ['NonFat', 'Medium', 'Fat']
