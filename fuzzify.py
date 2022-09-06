@@ -23,15 +23,15 @@ class washing_machine:
     wash_time['VeryLong'] = fuzz.trimf(wash_time.universe, [40, 60, 60])
 
     # Rule Application
-    rule1 = ctrl.Rule(degree_dirt['High'] | type_dirt['Fat'], wash_time['VeryLong'])
-    rule2 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['Fat'], wash_time['long'])
-    rule3 = ctrl.Rule(degree_dirt['Low'] | type_dirt['Fat'], wash_time['long'])
-    rule4 = ctrl.Rule(degree_dirt['High'] | type_dirt['Medium'], wash_time['long'])
-    rule5 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['Medium'], wash_time['medium'])
-    rule6 = ctrl.Rule(degree_dirt['Low'] | type_dirt['Medium'], wash_time['medium'])
-    rule7 = ctrl.Rule(degree_dirt['High'] | type_dirt['NonFat'], wash_time['medium'])
-    rule8 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['NonFat'], wash_time['short'])
-    rule9 = ctrl.Rule(degree_dirt['Low'] | type_dirt['NonFat'], wash_time['very_short'])
+    rule1 = ctrl.Rule(degree_dirt['High'] & type_dirt['Fat'], wash_time['VeryLong'])
+    rule2 = ctrl.Rule(degree_dirt['Medium'] & type_dirt['Fat'], wash_time['long'])
+    rule3 = ctrl.Rule(degree_dirt['Low'] & type_dirt['Fat'], wash_time['long'])
+    rule4 = ctrl.Rule(degree_dirt['High'] & type_dirt['Medium'], wash_time['long'])
+    rule5 = ctrl.Rule(degree_dirt['Medium'] & type_dirt['Medium'], wash_time['medium'])
+    rule6 = ctrl.Rule(degree_dirt['Low'] & type_dirt['Medium'], wash_time['medium'])
+    rule7 = ctrl.Rule(degree_dirt['High'] & type_dirt['NonFat'], wash_time['medium'])
+    rule8 = ctrl.Rule(degree_dirt['Medium'] & type_dirt['NonFat'], wash_time['short'])
+    rule9 = ctrl.Rule(degree_dirt['Low'] & type_dirt['NonFat'], wash_time['very_short'])
 
     # Washing Control Simulation
     washing_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
